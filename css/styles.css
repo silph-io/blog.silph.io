@@ -5,8 +5,17 @@
 		min-height:100%;
 		color:#848484;
 	}
+
+	.container.blog {
+		margin-top: 40px;
+	}
+
+	.blog-content {
+		background-color: #eee;
+	}
+
 	html {
-		background: url(../img/background1.jpg) no-repeat 100% 0 fixed;
+		background: url(https://d24wnu4kg3mkno.cloudfront.net/img/background1.jpg) no-repeat 100% 0 fixed;
 		background-position: 50% 50%;
 		background-size: cover;
 		height: 100%;
@@ -103,7 +112,7 @@
 		border-radius: 2px;
 	}
 	.modal-body { padding:10px; }
-	
+
 	.alert {
 		border: none;
 		border-left: 6px solid #E63A06;
@@ -141,33 +150,33 @@
 	
 	@font-face {
 		font-family: 'texgyreadventorregular';
-		src: url('../fonts/texgyreadventor_regular_macroman/texgyreadventor-regular-webfont.eot');
-		src: url('../fonts/texgyreadventor_regular_macroman/texgyreadventor-regular-webfont.eot?#iefix') format('embedded-opentype'),
-			 url('../fonts/texgyreadventor_regular_macroman/texgyreadventor-regular-webfont.woff') format('woff'),
-			 url('../fonts/texgyreadventor_regular_macroman/texgyreadventor-regular-webfont.ttf') format('truetype'),
-			 url('../fonts/texgyreadventor_regular_macroman/texgyreadventor-regular-webfont.svg#texgyreadventorregular') format('svg');
+		src: url('/fonts/texgyreadventor_regular_macroman/texgyreadventor-regular-webfont.eot');
+		src: url('/fonts/texgyreadventor_regular_macroman/texgyreadventor-regular-webfont.eot?#iefix') format('embedded-opentype'),
+			 url('/fonts/texgyreadventor_regular_macroman/texgyreadventor-regular-webfont.woff') format('woff'),
+			 url('/fonts/texgyreadventor_regular_macroman/texgyreadventor-regular-webfont.ttf') format('truetype'),
+			 url('/fonts/texgyreadventor_regular_macroman/texgyreadventor-regular-webfont.svg#texgyreadventorregular') format('svg');
 		font-weight: normal;
 		font-style: normal;
 		text-transform:uppercase;
 	}
 	@font-face {
 		font-family: 'texgyreadventorbold';
-		src: url('../fonts/texgyreadventor_bold_macroman/texgyreadventor-bold-webfont.eot');
-		src: url('../fonts/texgyreadventor_bold_macroman/texgyreadventor-bold-webfont.eot?#iefix') format('embedded-opentype'),
-			 url('../fonts/texgyreadventor_bold_macroman/texgyreadventor-bold-webfont.woff') format('woff'),
-			 url('../fonts/texgyreadventor_bold_macroman/texgyreadventor-bold-webfont.ttf') format('truetype'),
-			 url('../fonts/texgyreadventor_bold_macroman/texgyreadventor-bold-webfont.svg#texgyreadventorbold') format('svg');
+		src: url('/fonts/texgyreadventor_bold_macroman/texgyreadventor-bold-webfont.eot');
+		src: url('/fonts/texgyreadventor_bold_macroman/texgyreadventor-bold-webfont.eot?#iefix') format('embedded-opentype'),
+			 url('/fonts/texgyreadventor_bold_macroman/texgyreadventor-bold-webfont.woff') format('woff'),
+			 url('/fonts/texgyreadventor_bold_macroman/texgyreadventor-bold-webfont.ttf') format('truetype'),
+			 url('/fonts/texgyreadventor_bold_macroman/texgyreadventor-bold-webfont.svg#texgyreadventorbold') format('svg');
 		font-weight: normal;
 		font-style: normal;
 
 	}
 	@font-face {
 		font-family: 'texgyreadventoritalic';
-		src: url('../fonts/texgyreadventor_italic_macroman/texgyreadventor-italic-webfont.eot');
-		src: url('../fonts/texgyreadventor_italic_macroman/texgyreadventor-italic-webfont.eot?#iefix') format('embedded-opentype'),
-			 url('../fonts/texgyreadventor_italic_macroman/texgyreadventor-italic-webfont.woff') format('woff'),
-			 url('../fonts/texgyreadventor_italic_macroman/texgyreadventor-italic-webfont.ttf') format('truetype'),
-			 url('../fonts/texgyreadventor_italic_macroman/texgyreadventor-italic-webfont.svg#texgyreadventoritalic') format('svg');
+		src: url('/fonts/texgyreadventor_italic_macroman/texgyreadventor-italic-webfont.eot');
+		src: url('/fonts/texgyreadventor_italic_macroman/texgyreadventor-italic-webfont.eot?#iefix') format('embedded-opentype'),
+			 url('/fonts/texgyreadventor_italic_macroman/texgyreadventor-italic-webfont.woff') format('woff'),
+			 url('/fonts/texgyreadventor_italic_macroman/texgyreadventor-italic-webfont.ttf') format('truetype'),
+			 url('/fonts/texgyreadventor_italic_macroman/texgyreadventor-italic-webfont.svg#texgyreadventoritalic') format('svg');
 		font-weight: normal;
 		font-style: normal;
 
@@ -412,7 +421,7 @@
 		-ms-transform: translateZ(0px);
 		-o-transform: translateZ(0px);
 		transform: translateZ(0px);
-		background-image: url("../img/clouds.png");
+		background-image: url("https://d24wnu4kg3mkno.cloudfront.net/img/clouds.png");
 		pointer-events: none;
 		position: fixed;
 		z-index: 1000;
