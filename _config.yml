@@ -1,0 +1,11 @@
+permalink:        pretty
+encoding:         UTF-8
+markdown_ext: md
+source:      .
+destination: ./_site
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+include: ['_pages']
+markdown: kramdown
+excerpt_separator: "<!-- more -->"
+kramdown:
+  input: GFM
