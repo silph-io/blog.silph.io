@@ -1,7 +1,7 @@
 
 
 	html, body {
-		font-size:13px;
+		font-size:16px;
 		min-height:100%;
 		color:#848484;
 	}
@@ -31,15 +31,24 @@
 		#content { padding: 8px; }
 	}
 
-	.pagination { width: 100%; margin:0; }
+	.pagination {
+		width: 100%;
+		margin:0;
+		border-top: 1px solid #999;
+		border-bottom: 1px solid #999;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		margin-top: 5px;
+	}
 	.pagination .next { float: right; }
 	#disqus_thread { width: 100%; display: block; }
+	p img { text-align: center; }
 	h1,h2,h3,h4,h5,h6 {
 		font-family: 'texgyreadventorregular';
 		text-transform:uppercase;
 		letter-spacing:.2em
 	}
-	h1 { font-size: 22px; }
+	h1 { font-size: 25px; }
 	.blog-content h1 { margin-top: 0; }
 	a { color: #E4C049; }
 	a:hover { color: #F1CC55; }

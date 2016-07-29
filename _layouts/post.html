@@ -6,19 +6,19 @@ layout: default
 
 {{ content }}
 
-<div class="meta"><span class="author">By: <a href="#">{{ page.author }}</a></span> on <span class="date">{{ page.date }}</span></div>
-
+<div class="meta"><span class="author">-- <a href="#">{{ page.author }}</a></span> on <span class="date">{{ page.date | date: "%Y-%m-%d %H:%M"}}</span></div>
 <div class="pagination">
   {% if page.previous %}
     <span class="prev">
-      <a href={{ page.previous.url }}>« {{ page.previous.title }}</a> Prev post
+      <a href={{ page.previous.url }}>« {{ page.previous.title }}</a>
     </span>
   {% endif %}
   {% if page.next %}
     <span class="next">
-      Next post <a href={{ page.next.url }}>{{ page.next.title }} »</a>
+      <a href={{ page.next.url }}>{{ page.next.title }} »</a>
     </span>
   {% endif %}
+</div>
   {% if page.comments %}
 <div id="disqus_thread"></div>
 <script>
@@ -36,4 +36,3 @@ var disqus_config = function () {
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
   {% endif %}
-</div>
