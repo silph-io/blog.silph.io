@@ -31,13 +31,15 @@
 		#content { padding: 8px; }
 	}
 
+	.pagination { width: 100%; margin:0; }
+	.pagination .next { float: right; }
 	h1,h2,h3,h4,h5,h6 {
 		font-family: 'texgyreadventorregular';
 		text-transform:uppercase;
 		letter-spacing:.2em
 	}
 	h1 { font-size: 22px; }
-	
+	.blog-content h1 { margin-top: 0; }
 	a { color: #E4C049; }
 	a:hover { color: #F1CC55; }
 	

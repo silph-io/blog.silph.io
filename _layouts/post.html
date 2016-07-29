@@ -2,4 +2,37 @@
 layout: default
 ---
 
+<h1>{{ page.title }}</h1>
+
 {{ content }}
+
+<div class="meta"><span class="author">By: <a href="#">{{ page.author }}</a></span> on <span class="date">{{ page.date }}</span></div>
+
+<div class="pagination">
+  {% if page.previous %}
+    <span class="prev">
+      <a href={{ page.previous.url }}>« {{ page.previous.title }}</a> Prev post
+    </span>
+  {% endif %}
+  {% if page.next %}
+    <span class="next">
+      Next post <a href={{ page.next.url }}>{{ page.next.title }} »</a>
+    </span>
+  {% endif %}
+  {% if page.comments %}
+<div id="disqus_thread"></div>
+<script>
+var disqus_config = function () {
+    this.page.url = '{{ page.url }}';
+    this.page.identifier = '{{ page.id }}';
+};
+(function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//silph-io.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  {% endif %}
+</div>
