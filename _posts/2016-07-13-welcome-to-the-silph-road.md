@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Welcome to the Silph.io"
-date:   2016-07-13 10:18:23 -0500
+date:   2016-07-13 10:18:23 -0400
 categories: []
 author: 'Marco Ceppi'
 comments: true

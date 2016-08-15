@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Scaling out, not up"
-date:   2016-07-14 14:18:23 -0500
+date:   2016-07-14 14:18:23 -0400
 categories: []
 comments: true
 author: Marco Ceppi
