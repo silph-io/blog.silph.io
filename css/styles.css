@@ -42,7 +42,7 @@
 	}
 	.pagination .next { float: right; }
 	#disqus_thread { width: 100%; display: block; }
-	p img { text-align: center; }
+	p img { max-width: 910px; }
 	h1,h2,h3,h4,h5,h6 {
 		font-family: 'texgyreadventorregular';
 		text-transform:uppercase;
