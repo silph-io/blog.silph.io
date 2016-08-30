@@ -2,7 +2,7 @@
 layout: post
 title:  "Application and database tuning, a postmortem"
 date:   2016-08-30 17:54:16 -0400
-categories: [post-mortem]
+categories: []
 comments: true
 author: Marco Ceppi
 ---
