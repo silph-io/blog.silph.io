@@ -7,7 +7,7 @@ comments: true
 author: Marco Ceppi
 ---
 
-With a site this size and a team this small knowing where to invest time is crutial. We've been benchmarking the new infrastructure for the past few days and the numbers aren't quite what we'd like to see. Since we're moving quick I don't quite have time to setup things like Prometheous, Nagios, or other monitoring tools. I also don't want to have to manage more infrastructure than we already are. That's what ultimately lead me to the choice of [Datadog](https://datadog.com) a tool I've seen demos for at a few conferences but never really had a reason to use.
+With a site this size and a team this small knowing where to invest time is crutial. We've been benchmarking the new infrastructure for the past few days and the numbers aren't quite what we'd like to see. Since we're moving quick I don't quite have time to setup things like Prometheous, Nagios, or other monitoring tools. I also don't want to have to manage more infrastructure than we already are. That's what ultimately lead me to the choice of [Datadog](https://datadoghq.com) a tool I've seen demos for at a few conferences but never really had a reason to use.
 
 Getting going with Datadog was way easier than I anticipated. I decided to play around with it first on a single machine. I broke the cardinal rule of juju deployments and ssh'd onto a unit of silph-road and [installed datadog](https://app.datadoghq.com/account/settings#agent/ubuntu):
 
