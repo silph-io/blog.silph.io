@@ -40,13 +40,13 @@ So, we got the formalities out of the way. Lets take a look at what we uncovered
 
 ![Imgur](http://i.imgur.com/wZ9n3C9.png)
 
-The first indiciation that I had to a problem was the following (numerous) emails:
+The first indiciation that I had a problem was the following (numerous) emails:
 
 ![Imgur](http://i.imgur.com/0Bt5u6Y.png)
 
-I get these from time to time in the past, typically when the disk fills up. When these hit my inbox at 17:20ish I expected that was, logged into each node, checked disk space, restarted the agent on web0 and db0 since they were the loudest offenders and proceeded on my way. This was the first indiction of a problem and because the alert wasn't clear in the problem investigation halted at what the common cause of this problem has been.
+I get these from time to time, and in the past it's typically been due to disks filling up and causing the agent to crash. When these hit my inbox at 17:20ish I surmized it to be just that, logged into each node, checked disk space, and restarted the agents on web0 and db0. This was the first indiction of a problem and because the alert wasn't clear in describing the problem, diagnosis began and ended at what has typically caused this alert in the past.
 
-To address this we've used Datadog's awesome alerting framework, now whenever things like the database server go over a 15min load of 15, I will get a unique and different email alert.
+To address this we've used Datadog's awesome alerting framework and expanded our breadth of alerts. Now whenever things like the database server go over a 15min load of 15 or 1 min load of 30, I will get unique set of alerts.
 
 The second identification of a problem came when Dronpes pinged me on chat, shortly after the email notifications. Because of how mobile I am, chats always appear on my phone and I typically have the chat desktop app running in chrome. My phone being on lower battery avoided it from running the chat's background process to notify me.
 
