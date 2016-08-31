@@ -70,7 +70,7 @@ Essentially, php-fpm isn't able to handle this request, but the CPU and memory c
 
 Normally, this would be patched in the charm and then an upgrade would occur, but since we're firefighting in production we tested it on one server then rolled it out to the remaining. This removed the errors from cropping up in the log, but didn't really address the overall performance.
 
-### Diging for a reason
+### Digging for a reason
 
 With NGINX silenced we move further down the stack to the next bottle neck: the database server. This is ultimately where the most ground was made up in "fixing" the site. Looking back at Datadog we realized the load on the database server was quite high.
 
