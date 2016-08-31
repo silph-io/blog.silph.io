@@ -13,7 +13,7 @@ The first half of this blog post will be a postmortem on the events that occurre
 
  - 17:19UTC Trainer Tips release a [video](https://www.youtube.com/watch?v=bLhwgS9LzVo) on Youtube linking to Silph Road
  - 17:21UTC Average response time go from 100ms to 21,000ms per request
- - 19:15UTC Patches are applied to NGINX and PHP-FPM to address latency in EBS volues
+ - 19:15UTC Patches are applied to NGINX and PHP-FPM to address latency in EBS volumes
  - 19:17UTC Response time drops to 900ms (avg)
  - 19:19UTC Response time increases to 29,000ms (avg)
  - 20:17UTC MySQL identified as bottleneck in performance
