@@ -26,11 +26,11 @@ The first half of this blog post will be a postmortem on the events that occurre
 
 ## Summary
 
-Up until recently user access to The Silph Road was metered by invite bursts, as such user registration code paths were not as battle tested as other parts of the site which were tweaked and repaired over the course of July. From the above postmortem several lesons were learned:
+Up until recently user access to The Silph Road was metered by invite bursts, as such user registration code paths were not as battle tested as other parts of the site which were tweaked and repaired over the course of July. From the above postmortem several lessons were learned:
 
- * Monitoring was not properly configured so operations wasn't notified of a problem until several hours after the incident started. The duration of this outage could have been drastically reduced. Going forward better alerting has been added to pages to problems reach those those who need to act much sooner.
- * The database and application make use of methods which are costly to performance. While the immediate ones have been patched a review of the most common and longest running queries will help us find and fix the remaining.
- * Amazon's EBS disk continues to be our largest web tier bottle neck. We are evaluating other cloud platforms much as we've done for CDN providers.
+ * Monitoring was not properly configured so operations wasn't notified of a problem until several hours after the incident started. The duration of this outage could have been drastically reduced. Going forward we've improved our alerting and pager duty. Notifications will now reach those who need to know much sooner.
+ * The database and web application make use of methods which are costly to performance. While the immediate ones have been patched a review of the most common and longest running queries will help us find and fix the remaining.
+ * Amazon's EBS disk continues to be our largest web tier bottle neck. We are evaluating other cloud platforms in the same fashion [we've done for CDN providers]({% post_url 2016-07-17-CDN-CDN-CDN %}).
 
 ## Details
 
@@ -60,7 +60,7 @@ Finally, we've opened up our [operations dashboard](https://p.datadoghq.com/sb/a
 
 ### 502 Gateway Error
 
-When investigating an error like this the first place is to check the source of the error. Anyone who's used NGINX is aware of this lovely, albiet boring, 502 error page. Essentially, this means that NGINX can't communicate with the Gateway (PHP-FPM). Looking at the logs, a lot of this was seen:
+When investigating an error like this, the first place to look is the source of the error. Anyone who's used NGINX is aware of this lovely, albiet boring, 502 error page. Essentially, this means that NGINX can't communicate with the Gateway (PHP-FPM). Looking at the logs, a lot of this was seen:
 
 ```
 2016/08/30 17:24:07 [error] 24736#0: *69227539 connect() to unix:/var/run/php5-fpm.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.142.182.3, server: _, request: "GET /users/registration HTTP/1.1", upstream: "fastcgi://unix:/var/run/php5-fpm.sock:", host: "thesilphroad.com", referrer: "https://ssl.reddit.com/"
@@ -92,7 +92,7 @@ So CPU load doesn't indicate CPU utilization, it's more an indication of the que
 
 ### Tuning a MySQL server under stress
 
-To avoid getting bitten by Amazons poor disk IO we put all the data for MariaDB on SSD drives. This has afforded us a lot in terms of the load we can handle give the relatively small size of our cloud instance. When investigating why the MySQL server was so overloaded the first thing was to jump into a MySQL session and just see what was running.
+To avoid getting bitten by Amazon's poor disk IO we put all the data for MariaDB on SSD drives. This has increased the amount operations we can perform given the relatively small instance size. When investigating why the MySQL server was so overloaded the first thing was to jump into a MySQL session and just see what was running.
 
 ```
 $ mysql
@@ -107,25 +107,25 @@ Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 MariaDB [(none)]>
 ```
 
-From here, we ran `show processlist;` which dumps the list of running processes on the MySQL server. This returned over 1500 rows. That's 1500 MySQL threads being processed. The list of processes includes the query being run and what we say were queries like the following taking multiple seconds sometimes north of 30 seconds to complete
+From here, we ran `show processlist;` which dumps the list of running processes on the MySQL server. This returned over 1500 rows. That's 1500 MySQL threads being processed. The list of processes includes the queries being run. From there we saw queries, like the following, taking anywhere from 4 seconds to greater than 30 seconds to complete.
 
-```
+```sql
 SELECT COUNT(*) AS `count` FROM `users` WHERE `username` = ?
 ```
 
-There are a few things problematic here, the first is `COUNT(*)` can be quite expensive when compared to alternatives like `COUNT(1)`. Ultimately, this query is looking to see if the username exists already during user registration. With the increase of users coming to the site and the removal of the access code gate, this was being excercised much more and brought to light two problems:
+There are a few things problematic in this query. The first is `COUNT(*)`, which can be quite expensive when compared to alternatives, such as `COUNT(1)`. Ultimately, this query is looking to see if the username exists already exists during the registration process. The increase of user traffic to the site and the removal of the access code gate brought to light these two problems:
 
- * COUNT(*) isn't as efficient as other means to determine if a field exists in the database
+ * `COUNT(*)` isn't as efficient as other means to determine if a field exists in the database
  * `username` wasn't being indexed
 
-The second problem is the more costly one, with the users table growing by a few hundred every minute the cost of scouring over the entire table everytime someone registered created a bottle neck. The longer these processes took, the more other processes had to wait, the higher the load of the server got. All of this backsup into the web application and causes it to timeout on load and respond slowly.
+The second problem was the more costly one. The users table growing by a few hundred entries every minute compounded the cost of look up times during user registration, creating this bottle neck. The longer these processes took, the more other processes had to wait, the higher the load on the server. All of this backsup into the web application and causes it to timeout and respond slowly.
 
 ![Imgur](http://i.imgur.com/eQScTL5.png)
 
-After fixing a few our the look ups in the code and applying a few indexes to the user table, MySQL was able to churn through these requests much quicker, which means there's less processes waiting (lower load), and the application can respond quicker meaning the response time decrease and 502 gateways go away.
+After fixing a few of the queries in the code and creating new indexes in the users table, MySQL was able to churn through these requests much quicker. The results are less processes waiting, a lower load, and the application can respond quicker.
 
-There were finally a few more fields we tuned for the MariaDB configuration, this was done using Juju, which helped us get some more breathing room. We increased `tmp_table_size` and `max_heap_table_size` to allow for some queries which require temporary tables to run more smoothly.
+Using Juju, we tuned MariaDB's configuration to get more breathing room. To accomplish this, we increased `tmp_table_size` and `max_heap_table_size` allowing for those queries which require temporary tables to run efficiently.
 
 ## Conclusion
 
-It was quiet for far too long, a lot of lessons were learned and we've already moved to address everything we found that caused us not to catch this sooner.
+It was quiet for far too long, a lot of lessons were learned, and we've already moved to address everything we found that caused us not to catch this sooner.
