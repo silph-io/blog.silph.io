@@ -9,3 +9,5 @@ markdown: kramdown
 excerpt_separator: "<!-- more -->"
 kramdown:
   input: GFM
+gems:
+  - jekyll-feed
