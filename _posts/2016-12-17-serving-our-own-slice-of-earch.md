@@ -77,4 +77,4 @@ We've scaled this out for the initial bump, with five render slaves running on `
 
 If you come across black/grey squares or other issues, try zooming out one level and zoom in. You've hit a bit of a peak moment in the servers' map generation not previously accessed.
 
-I understand this post is a bit light on the actual how to. The following post will dive deeper into this and our plans around basemap generation. For now we're happy with the progress, as we run this in full we'll report back to the community on cost and improvements.
+I understand this post is a bit light on the actual how to. The following post will dive deeper into this and our plans around basemap generation. For now we're happy with the progress, as we run this in full we'll report back to the community on cost and improvements. We had less than a week to build a tile server and basemap system, this is by far not the last iteration. In the coming days we'll be stabilzing the platform, updating tile styles, and making sure our tiles are as up to date as the upstream OSM datasource.
