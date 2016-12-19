@@ -7,6 +7,8 @@ comments: true
 author: Marco Ceppi
 ---
 
+**This is part one of two**
+
 Things have been pretty quiet on the Silph Road Ops. After ironing a lot of our [scale issues]({% post_url 2016-07-14-scaling-up-not-out %}) and [monitoring snafus]({% post_url 2016-07-16-insights-with-datadog %}) the servers basically run themselves. Dronpes, Moots, and the team have kept on updating, upgrading, and releasing the Silph Road. The goal of this blog, and Silph IO, is to make sure the site stays up, stays healthy, and is cost effective to run. Today we're announcing another step in making sure both goals are met.
 
 > Due to some, frankly, aggressive and deceitful sales tactics; Mapbox went from our savior [...] to potentially a nail in our coffin
