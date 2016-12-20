@@ -47,7 +47,7 @@ From here we installed a slew of library packages, PostgreSQL 9.5, mapnik, mod_t
 1. A request for a tile is made by the client. If the CDN has cached this tile it'll return immediately.
 2. CDN requests the tile from the tile server, caching the response.
 3. mod_tile is triggered, if the tile exists on disk (tile_storage) it will be returned.
-4. rendered is triggered, querying PostgreSQL for the elements, creating the tile image, and storing it on disk (tile_storage) mod_tile then returns the generated image.
+4. renderd is triggered, querying PostgreSQL for the elements, creating the tile image, and storing it on disk (tile_storage) mod_tile then returns the generated image.
 
 To start, we needed to load a copy of the OSM. The OSM project publishes [weekly dumps of their datasource](http://planet.openstreetmap.org/), licensed under the [Open Data Commons Open Database License](http://opendatacommons.org/licenses/odbl/summary/). They use a [PBF format](http://wiki.openstreetmap.org/wiki/PBF_Format), which compresses the data down to 34GB. This file is loaded into PostgreSQL using `osm2pgsql`, which looks something like this:
 
