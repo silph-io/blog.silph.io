@@ -25,7 +25,7 @@ Finally, Dronpes has implemented measures to make sure if tiles fail to load, fo
 
 There is still room for improvement and you can expect a revision 2 of the map shortly. This will address what we're calling "[spaghetti](http://i.imgur.com/JDEiwrM.jpg)" when zoomed out due to highways taking over the map, continue colored tweaks, and more performance enhancements.
 
---
+***
 
 From this point forward I want to talk more on the technical side, with an overview on how we enabled retina tile rendering, how we produced the new Town Map theme, and some of the changes to improve performance.
 
