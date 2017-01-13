@@ -13,7 +13,7 @@ TL;DR: Retina tiles are being rendered and a whole new map style has been releas
 
 While I promised a more technical dive into our infrastructure, this won't be it. There will be a post following this one which outlines and details the nitty gritty of how run our basemap tileservers, which we've named "The Town Map". It's been three weeks since we made the switch to our own basemaps and a lot has been going on behind the scenes. As a result, any documentation of our infrastructure would be rendered obsolete within days of it's publishing. We continue to improve performance, configurations, and experiment with alternatives: from different raster software to using vector tiles. As we conclude our tweaks and knowledge gathering I'll make sure we publish a thorough write up of the deployment and, most importantly, how to replicate it.
 
-Instead I want to talk about the new map design and other enhancements made to improve user experience. Like before this post will be split with more technical details towards the bototom. Since the launch we've gotten a lot of mixed feedback ranging from those loving the new map style to those less satisfied with its poor contrast and clutter. Under Dronpes guideance, we've released revision 1 of the Silph Town Map! Here's the changelog:
+Instead I want to talk about the new map design and other enhancements made to improve user experience. Like before this post will be split with more technical details towards the bottom. Since the launch we've gotten a lot of mixed feedback ranging from those loving the new map style to those less satisfied with its poor contrast and clutter. Under Dronpes guideance, we've released revision 1 of the Silph Town Map! Here's the changelog:
 
 * Minor text fixes
 
